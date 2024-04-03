@@ -16,6 +16,9 @@ The intuit75k.rds file contains data on 75,000 businesses selected randomly from
 fig1 = rsm.prop_plot(intuit75k[intuit75k['training']==1], "rec_iq", "res1", "Yes")
 fig1 = fig1.set_xlabel("Recency value quintiles (rec_iq)")
 ```
+<p align="center">
+  <img width="460" height="300" src="https://github.com/arnavv-agarwal/Intuit-Quickbooks/blob/main/R.png">
+</p>
 
 - Frequency Chart
   - The below graph depicts the proportion of customers who responded "yes" to waive 1 mail that was send out, per independent frequency. The customers in bin 1 had the highest frequency rate from the mail sent out as opposed to ones in bin 5. The customers in bin 1 had the highest response rate from the mail sent out as opposed to ones in bin 5. It shows that the response rate from the top quintile (20% group) was 8.00%, while the next quintile responded at a rate of 5.00%. The last quintile had a response rate of ~3.3%.
@@ -24,7 +27,9 @@ fig1 = fig1.set_xlabel("Recency value quintiles (rec_iq)")
 fig2 = rsm.prop_plot(intuit75k[intuit75k['training']==1], "freq_iq", "res1", "Yes")
 fig2 = fig2.set_xlabel("Frequency value quintiles (freq_iq)")
 ```
-
+<p align="center">
+  <img width="460" height="300" src="https://github.com/arnavv-agarwal/Intuit-Quickbooks/blob/main/F.png">
+</p>
 - Monetary Chart
   - The above graph depicts the proportion of customers who responded "yes" to waive 1 mail that was send out, per independent monetory. The customers in bin 1 had the highest expenditure rate from the mail sent out as opposed to ones in bin 5. It shows that the response rate from the top quintile (20% group) was 7.00%, while the next quintile responded at a rate of 4.5%. The last quintile had a response rate of 3.2%.
 
@@ -32,7 +37,11 @@ fig2 = fig2.set_xlabel("Frequency value quintiles (freq_iq)")
 fig3 = rsm.prop_plot(intuit75k[intuit75k['training']==1], "mon_iq", "res1", "Yes")
 fig3 = fig3.set_xlabel("Monetary value quintiles (mon_iq)")
 ```
-##  RFM Index
+<p align="center">
+  <img width="460" height="300" src="https://github.com/arnavv-agarwal/Intuit-Quickbooks/blob/main/M.png">
+</p>
+
+## RFM Index
 To perform RFM analysis, we bin the customers using Independent or Sequential Method. In independent method, the ranks of RFM are assigned independently.
 
 - Independent 
@@ -50,6 +59,9 @@ fig = rsm.prop_plot(intuit75k, "rfm_iq", "res1", "Yes")
 fig.set_xticklabels(fig.get_xticklabels(), rotation=90)
 fig = fig.set(xlabel="Independent RFM index (rfm_iq)")
 ```
+<p align="center">
+  <img width="600" height="300" src="https://github.com/arnavv-agarwal/Intuit-Quickbooks/blob/main/RFMI.png">
+</p>
 - Sequential
   - To further modify the RFM analysis, we use sequential method to assign the ranks of RFM in order. In this method, first the Recency values are assigned. Then within each recency rank, customers are assigned a frequency rank, and within each frequency rank, customer are then assigned a monetary rank. This tends to take into account all the three factors in each bin value and hence provide a better even distribution of combined RFM scores.
 ```python 
@@ -68,6 +80,10 @@ fig_rfm_sq = rsm.prop_plot(intuit75k, "rfm_sq", "res1", "Yes", breakeven = break
 fig_rfm_sq.set_xticklabels(fig_rfm_sq.get_xticklabels(), rotation=90)
 fig_rfm_sq = fig_rfm_sq.set(xlabel="Independent RFM index (rsm_sq)")
 ```
+<p align="center">
+  <img width="600" height="300" src="https://github.com/arnavv-agarwal/Intuit-Quickbooks/blob/main/RFMS.png">
+</p>
+
 ## Analysis
 After running analysis on the data, three scenarios are considered:
 
@@ -89,8 +105,6 @@ lr_std_df2 = smf.glm(
 ).fit()
 print(rsm.or_ci(lr_std_df2))
 ```
-
-
 ### Standardize Values
 Values are standardized to better scale the impact of variables.
 
